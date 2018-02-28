@@ -21,7 +21,7 @@ class RNN_model():
         self.model=self.create_model()
     def train(self,X,y):
         X=X.reshape((len(X),5,1))
-        self.model.fit(X,y,epochs=self.epochs,batch_size=self.batchsize,shuffle=True,validation_split=0.2)
+        self.model.fit(X,y,epochs=self.epochs,batch_size=self.batchsize,shuffle=True,validation_split=0.2, class_weight={0:1,1:6})
     def test(self,X):
         X=X.reshape((len(X),5,1))
         print(X.shape)
